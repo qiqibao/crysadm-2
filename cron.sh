@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #this is cron start script
 #Author:sanzuwu
