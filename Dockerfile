@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y git wget sudo vim nginx
 RUN mkdir /app 
 WORKDIR /app
 
-#下载云监工源代码
-RUN git clone https://github.com/seatom/crysadm.git
+#下载云监工源代码（进行部分修改）,从源地址在 https://github.com/seatom/crysadm.git
+RUN git clone https://github.com/jimmyagent/crysadm.git
 
 #redis数据库保存目录
 VOLUME ["/var/lib/redis"]
@@ -49,6 +49,7 @@ EXPOSE 80
 RUN chmod +w /set_root_pw.sh
 #添加运行脚本
 RUN echo "/app/crysadm/run.sh" >>/set_root_pw.sh
+RUN echo "/app/crysadm/cron.sh" >>/set_root_pw.sh
 #RUN echo "service nginx start" >>/set_root_pw.sh
 #RUN echo "service nginx reload" >>/set_root_pw.sh
 RUN echo "/bin/bash" >>/set_root_pw.sh
