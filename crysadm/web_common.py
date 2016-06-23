@@ -463,11 +463,13 @@ def header_info():
     str_today = datetime.now().strftime('%Y-%m-%d')
     key = 'user_data:%s:%s' % (user.get('username'), str_today)
 
-    data = dict(balance=0)
+    data = dict(balance=0,uncollect=0,income=0)
 
     b_data = r_session.get(key)
     if b_data is not None:
         data['balance'] = json.loads(b_data.decode('utf-8')).get('balance')
+        data['uncollect'] = json.loads(b_data.decode('utf-8')).get('uncollect')
+        data['income'] = json.loads(b_data.decode('utf-8')).get('income')
 
     b_api_error_info = r_session.get('api_error_info')
     if b_api_error_info is not None:
