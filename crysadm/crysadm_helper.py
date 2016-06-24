@@ -767,7 +767,7 @@ if __name__ == '__main__':
             'searcht_crystal_interval':360*60,
             'revenge_crystal_interval':300*60,
             'getaward_crystal_interval':240*60,
-            'get_online_user_data_interval':30,
+            'get_online_user_data_interval':10,
             'get_offline_user_data_interval':600,
             'clear_offline_user_interval':60,
             'select_auto_task_user_interval':10*60,
@@ -808,7 +808,7 @@ if __name__ == '__main__':
     # 执行自动监测时间，单位为秒，默认为300秒。
     # 每5分钟检测一次矿机状态
     threading.Thread(target=timer, args=(auto_detect, config_info['auto_detect_interval'])).start()
-    # 刷新在线用户数据，单位为秒，默认为30秒。
+    # 刷新在线用户数据，单位为秒，默认为10秒。
     # 每30秒刷新一次在线用户数据
     threading.Thread(target=timer, args=(get_online_user_data, config_info['get_online_user_data_interval'])).start()
     # 刷新离线用户数据，单位为秒，默认为60秒。
