@@ -127,6 +127,7 @@ def save_history(username):
     today_data['pdc'] = 0
     today_data['last_speed'] = 0
     today_data['deploy_speed'] = 0
+    today_data['uncollect'] = 0
     today_data['balance'] = 0
     today_data['income'] = 0
     today_data['speed_stat'] = list()
@@ -151,6 +152,8 @@ def save_history(username):
 
         today_data['pdc'] += this_pdc
         today_data.get('pdc_detail').append(dict(mid=data.get('privilege').get('mid'), pdc=this_pdc))
+
+        today_data['uncollect'] += data.get('mine_info').get('td_not_in_a')
         today_data['balance'] += data.get('income').get('r_can_use')
         today_data['income'] += data.get('income').get('r_h_a')
         today_data.get('produce_stat').append(dict(mid=data.get('privilege').get('mid'), hourly_list=data.get('produce_info').get('hourly_list')))
