@@ -1,8 +1,8 @@
 # 这是迅雷云监工的docker程序
 # 云监工原作者powergx,从seatom拖过来的
 #
-FROM tutum/ubuntu:trusty
 
+FROM tutum/ubuntu:trusty
 
 RUN rm /bin/sh &&  ln -s /bin/bash /bin/sh
 
@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y git wget sudo vim nginx
 RUN mkdir /app 
 WORKDIR /app
 
-#下载云监工源代码（进行部分修改）,从源地址在 https://github.com/seatom/crysadm.git
-RUN git clone https://github.com/jimmyagent/crysadm.git
+#下载云监工源代码（进行部分修改）,从源地址在 https://github.com/qiqibao/crysadm-3.git
+RUN git clone https://github.com/qiqibao/crysadm-3.git
 
 #redis数据库保存目录
 VOLUME ["/var/lib/redis"]
